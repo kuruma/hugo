@@ -5,7 +5,7 @@ import (
 	"io"
 	"path"
 
-	"github.com/spf13/hugo/helpers"
+	"../helpers"
 )
 
 type Publisher interface {

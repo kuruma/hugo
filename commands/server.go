@@ -23,7 +23,7 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/spf13/hugo/helpers"
+	"../helpers"
 	jww "github.com/spf13/jwalterweatherman"
 	"github.com/spf13/viper"
 )

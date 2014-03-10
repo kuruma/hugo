@@ -5,8 +5,8 @@ import (
 	"strings"
 	"testing"
 
-	"github.com/spf13/hugo/source"
-	"github.com/spf13/hugo/target"
+	"../source"
+	"../target"
 )
 
 const ALIAS_DOC_1 = "---\ntitle: alias doc\naliases:\n  - \"alias1/\"\n  - \"alias-2/\"\n---\naliases\n"

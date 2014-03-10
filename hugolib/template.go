@@ -14,7 +14,7 @@ import (
 	"strings"
 
 	"github.com/eknkc/amber"
-	"github.com/spf13/hugo/helpers"
+	"../helpers"
 	jww "github.com/spf13/jwalterweatherman"
 )
 

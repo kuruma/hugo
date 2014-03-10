@@ -6,7 +6,7 @@ import (
 	"path"
 	"strings"
 
-	"github.com/spf13/hugo/helpers"
+	"../helpers"
 )
 
 const ALIAS = "<!DOCTYPE html><html><head><link rel=\"canonical\" href=\"{{ .Permalink }}\"/><meta http-equiv=\"content-type\" content=\"text/html; charset=utf-8\" /><meta http-equiv=\"refresh\" content=\"0;url={{ .Permalink }}\" /></head></html>"

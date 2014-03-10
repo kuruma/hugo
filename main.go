@@ -16,7 +16,7 @@ package main
 import (
 	"runtime"
 
-	"github.com/spf13/hugo/commands"
+	"./commands"
 )
 
 func main() {

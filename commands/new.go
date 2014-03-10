@@ -19,9 +19,9 @@ import (
 	"strings"
 
 	"github.com/spf13/cobra"
-	"github.com/spf13/hugo/create"
-	"github.com/spf13/hugo/helpers"
-	"github.com/spf13/hugo/parser"
+	"../create"
+	"../helpers"
+	"../parser"
 	jww "github.com/spf13/jwalterweatherman"
 	"github.com/spf13/viper"
 )

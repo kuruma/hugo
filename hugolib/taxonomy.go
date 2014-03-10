@@ -16,7 +16,7 @@ package hugolib
 import (
 	"sort"
 
-	"github.com/spf13/hugo/helpers"
+	"../helpers"
 )
 
 /*

@@ -4,8 +4,8 @@ import (
 	"html/template"
 	"testing"
 
-	"github.com/spf13/hugo/source"
-	"github.com/spf13/hugo/target"
+	"../source"
+	"../target"
 	"github.com/spf13/viper"
 )
 

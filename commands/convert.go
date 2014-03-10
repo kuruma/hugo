@@ -20,8 +20,8 @@ import (
 
 	"github.com/spf13/cast"
 	"github.com/spf13/cobra"
-	"github.com/spf13/hugo/hugolib"
-	"github.com/spf13/hugo/parser"
+	"../hugolib"
+	"../parser"
 	jww "github.com/spf13/jwalterweatherman"
 )
 
