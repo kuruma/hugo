@@ -290,6 +290,8 @@ func (p *Page) permalink() (*url.URL, error) {
 		}
 	}
 
+	permalink = strings.TrimSuffix(permalink, "/")
+
 	return helpers.MakePermalink(baseUrl, permalink), nil
 }
 
