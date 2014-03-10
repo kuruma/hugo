@@ -387,6 +387,8 @@ func (page *Page) update(f interface{}) error {
 			page.Sitemap = parseSitemap(cast.ToStringMap(v))
                 case "_references":
                         page.Params[loki] = parseReferences(v)
+                case "_modified":
+                        page.Params[loki] = cast.ToTime(v)
 		default:
 			// If not one of the explicit values, store in Params
 			switch vv := v.(type) {
