@@ -4,8 +4,8 @@ import (
 	"bytes"
 	"os/exec"
 	"strings"
-
 	jww "github.com/spf13/jwalterweatherman"
+	"unicode/utf8"
 )
 
 var summaryLength = 70
@@ -13,6 +13,10 @@ var summaryDivider = []byte("<!--more-->")
 
 func TotalWords(s string) int {
 	return len(strings.Fields(s))
+}
+
+func TotalLetters(s string) int {
+        return utf8.RuneCountInString(s)
 }
 
 func WordCount(s string) map[string]int {

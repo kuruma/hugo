@@ -68,6 +68,9 @@ type PageMeta struct {
 	WordCount      int
 	FuzzyWordCount int
 	ReadingTime    int
+        ReadingTimeEn  int
+        LetterCount    int
+        FuzzyLetterCount int
 	Weight         int
 }
 
@@ -251,9 +254,12 @@ func (p *Page) ReadFrom(buf io.Reader) (err error) {
 }
 
 func (p *Page) analyzePage() {
-	p.WordCount = TotalWords(p.Plain())
-	p.FuzzyWordCount = int((p.WordCount+100)/100) * 100
-	p.ReadingTime = int((p.WordCount + 212) / 213)
+        p.WordCount = TotalWords(p.Plain())
+        p.LetterCount = TotalLetters(p.Plain())
+        p.FuzzyWordCount = int((p.WordCount+100)/100) * 100
+        p.FuzzyLetterCount = int((p.LetterCount+100)/100) * 100
+        p.ReadingTimeEn = int((p.WordCount + 212) / 213)
+        p.ReadingTime = int((p.LetterCount + 499) / 500)
 }
 
 func (p *Page) permalink() (*url.URL, error) {
