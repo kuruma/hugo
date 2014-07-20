@@ -192,14 +192,26 @@ func IsSet(a interface{}, key interface{}) bool {
 	return false
 }
 
-func ReturnWhenSet(a interface{}, index int) interface{} {
+func ReturnWhenSet(a interface{}, key interface{}) interface{} {
 	av := reflect.ValueOf(a)
+	kv := reflect.ValueOf(key)
 
 	switch av.Kind() {
 	case reflect.Array, reflect.Slice:
-		if av.Len() > index {
-
-			avv := av.Index(index)
+		for i := 0; i < av.Len(); i++ {
+			avv := av.Index(i).Elem()
+			if kv.String() == avv.String() {
+				switch avv.Kind() {
+				case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
+					return avv.Int()
+				case reflect.String:
+					return avv.String()
+				}
+			}
+		}
+	case reflect.Map:
+		if kv.Type() == av.Type().Key() {
+			avv := av.MapIndex(kv).Elem()
 			switch avv.Kind() {
 			case reflect.Int, reflect.Int8, reflect.Int16, reflect.Int32, reflect.Int64:
 				return avv.Int()
