@@ -46,6 +46,7 @@ type Page struct {
 	Draft             bool
 	PublishDate       time.Time
 	Aliases           []string
+	NoTOC             bool
 	Tmpl              Template
 	Markup            string
 	renderable        bool
@@ -125,7 +126,11 @@ func (p *Page) renderBytes(content []byte) []byte {
 }
 
 func (p *Page) renderContent(content []byte) []byte {
-	return renderBytesWithTOC(content, p.guessMarkupType())
+	if p.NoTOC {
+		return renderBytes(content, p.guessMarkupType())
+	} else {
+		return renderBytesWithTOC(content, p.guessMarkupType())
+	}
 }
 
 func renderBytesWithTOC(content []byte, pagefmt string) []byte {
@@ -382,6 +387,8 @@ func (page *Page) update(f interface{}) error {
 			page.Markup = cast.ToString(v)
 		case "weight":
 			page.Weight = cast.ToInt(v)
+		case "notoc":
+			page.NoTOC = cast.ToBool(v)
 		case "aliases":
 			page.Aliases = cast.ToStringSlice(v)
 			for _, alias := range page.Aliases {
